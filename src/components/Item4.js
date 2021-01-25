@@ -37,7 +37,7 @@ class Item4 extends Component {
     // }
 
     checkWinner = () => {
-        fetch('http://localhost:3000/results', {
+        fetch('https://serene-spire-38055.herokuapp.com/results', {
             method: 'post',
             headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({
@@ -61,7 +61,7 @@ class Item4 extends Component {
     }
 
     checkBidStatus = () => {
-        fetch('http://localhost:3000/', {
+        fetch('https://serene-spire-38055.herokuapp.com/', {
             method: 'get',
             headers: {'Content-Type': 'application/json'}
             })
@@ -101,7 +101,7 @@ class Item4 extends Component {
     }
 
     onSubmitBid = () => {
-        fetch('http://localhost:3000/placeBid', {
+        fetch('https://serene-spire-38055.herokuapp.com/placeBid', {
             method: 'put',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
@@ -113,7 +113,7 @@ class Item4 extends Component {
     }
 
     onCloseBid = () => {
-        fetch('http://localhost:3000/closeBid', {
+        fetch('https://serene-spire-38055.herokuapp.com/closeBid', {
             method: 'post',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
