@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/Auction-Site/static/css/main.f445755f.chunk.css",
+    "main.js": "/Auction-Site/static/js/main.e0129552.chunk.js",
+    "main.js.map": "/Auction-Site/static/js/main.e0129552.chunk.js.map",
+    "runtime-main.js": "/Auction-Site/static/js/runtime-main.55427576.js",
+    "runtime-main.js.map": "/Auction-Site/static/js/runtime-main.55427576.js.map",
+    "static/js/2.8ca7fafd.chunk.js": "/Auction-Site/static/js/2.8ca7fafd.chunk.js",
+    "static/js/2.8ca7fafd.chunk.js.map": "/Auction-Site/static/js/2.8ca7fafd.chunk.js.map",
+    "static/js/3.8cdbd6f4.chunk.js": "/Auction-Site/static/js/3.8cdbd6f4.chunk.js",
+    "static/js/3.8cdbd6f4.chunk.js.map": "/Auction-Site/static/js/3.8cdbd6f4.chunk.js.map",
+    "index.html": "/Auction-Site/index.html",
+    "static/css/main.f445755f.chunk.css.map": "/Auction-Site/static/css/main.f445755f.chunk.css.map",
+    "static/js/2.8ca7fafd.chunk.js.LICENSE.txt": "/Auction-Site/static/js/2.8ca7fafd.chunk.js.LICENSE.txt",
+    "static/media/banana.666f4911.jpg": "/Auction-Site/static/media/banana.666f4911.jpg",
+    "static/media/lambo.2c635dd7.jpg": "/Auction-Site/static/media/lambo.2c635dd7.jpg",
+    "static/media/watch.cd5d0901.jpg": "/Auction-Site/static/media/watch.cd5d0901.jpg",
+    "static/media/westminster.bb2487a5.jpg": "/Auction-Site/static/media/westminster.bb2487a5.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.55427576.js",
+    "static/js/2.8ca7fafd.chunk.js",
+    "static/css/main.f445755f.chunk.css",
+    "static/js/main.e0129552.chunk.js"
+  ]
+}
