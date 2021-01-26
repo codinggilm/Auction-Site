@@ -89,7 +89,7 @@ class Item2 extends Component {
             <div id="item">
                 <img src={watch} alt=""/>
                 <h3>Hero's Watch</h3>
-                <p>If you look at it, you'll know time!</p>
+                <p>Lets you control time and space.</p>
 
                 {
                     
