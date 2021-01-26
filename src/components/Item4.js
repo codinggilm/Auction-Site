@@ -89,7 +89,7 @@ class Item4 extends Component {
             <div id="item">
                 <img src={westminster} alt=""/>
                 <h3>Westminter</h3>
-                <p>Yup, you can buy it!</p>
+                <p>Yes, you can buy it!</p>
                 
                 {
                     

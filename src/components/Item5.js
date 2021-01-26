@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './Item.css'
-import liver from '../assets/liver.jpg';
+import guitar from '../assets/guitar.jpg';
  
 
 
@@ -87,9 +87,9 @@ class Item5 extends Component {
     render () {
         return (
             <div id="item">
-                <img src={liver} alt=""/>
-                <h3>Harry's liver</h3>
-                <p>He said we can sell it here?</p>
+                <img src={guitar} alt=""/>
+                <h3>Van Halen's guitar</h3>
+                <p>Used and abused, the real deal!</p>
 
                 {
                     
