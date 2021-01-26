@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import SignIn from './components/SignIn';
+import Signin from './components/Signin';
 import AuctionPage from './components/AuctionPage';
 import './App.css';
 
@@ -42,7 +42,7 @@ class App extends Component {
 				{
 					route === 'signin' ? 
 
-					<SignIn loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
+					<Signin loadUser={this.loadUser} onRouteChange={this.onRouteChange} />
 					: 
 					<AuctionPage user={this.state.username} onRouteChange={this.onRouteChange}/>
 				}
