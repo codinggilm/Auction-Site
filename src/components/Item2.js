@@ -6,7 +6,7 @@ import watch from '../assets/watch.jpg';
 
 
 class Item2 extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
             username: props.user,
@@ -16,25 +16,6 @@ class Item2 extends Component {
         }
     }
 
-    // checkWinner = () => {
-    //     fetch('http://localhost:3000/resultBid2', {
-    //         method: 'get',
-    //         headers: {'Content-Type': 'application/json'}
-    //         })
-    //         .then(response => response.json())
-    //         .then(data => {
-    //             if (data === 'User1 won this bid!') {
-    //                 this.setState({bidWinner: 'User1'})
-    
-    //                     console.log(this.state.bidWinner)
-    //                 } else if (data === 'User1 lost this bid!') { 
-    //                     this.setState({bidWinner: 'User2'})
-                        
-    //             } else if (data === 'no winner') {
-    //                 this.setState({bidWinner: ''})
-    //         }
-    //     })
-    // }
 
     checkWinner = () => {
         fetch('https://serene-spire-38055.herokuapp.com/results', {
@@ -49,11 +30,10 @@ class Item2 extends Component {
             .then(data => {
                 if (data === 'User1 won this bid!') {
                     this.setState({bidWinner: 'User1'})
-    
-                        console.log(this.state.bidWinner)
-                    } else if (data === 'User1 lost this bid!') { 
-                        this.setState({bidWinner: 'User2'})
-                        
+
+                } else if (data === 'User1 lost this bid!') { 
+                    this.setState({bidWinner: 'User2'})
+
                 } else if (data === 'no winner') {
                     this.setState({bidWinner: ''})
             }
@@ -67,38 +47,18 @@ class Item2 extends Component {
             })
             .then(response => response.json())
             .then(response => {
-                // if (response.bidStatus[0].bid2 === 'closed') {
                 if (response.bidStatus[1].status === 'closed') {
-                return this.checkWinner()
+                return this.checkWinner();
             }
         })
     }
 
     componentDidMount() {
-        this.checkBidStatus()
+        this.checkBidStatus();
     }
     
-    // componentDidMount() {
-    //     fetch('http://localhost:3000/resultBid2', {
-    //         method: 'get',
-    //         headers: {'Content-Type': 'application/json'}
-    //         })
-    //         .then(response => response.json())
-    //         .then(data => {
-    //             if (data === 'User1 won this bid!') {
-    //                 this.setState({bidWinner: 'User1'})
-
-    //             } else if (data === 'User1 lost this bid!') { 
-    //                 this.setState({bidWinner: 'User2'})
-                    
-    //         } else if (data === 'no winner') {
-    //             this.setState({bidWinner: ''})
-    //         }
-    //     })
-    // }
-
     onBidChange = (event) => {
-        this.setState({bidValue: event.target.value})
+        this.setState({bidValue: event.target.value});
     }
 
     onSubmitBid = () => {
@@ -113,40 +73,13 @@ class Item2 extends Component {
         })
     }
 
-    // onBidChange = (event) => {
-    //     this.setState({itemTwoBid: event.target.value})
-    // }
-
-    // onSubmitBid = () => {
-    //     fetch('http://localhost:3000/bid2', {
-    //         method: 'put',
-    //         headers: {'Content-Type': 'application/json'},
-    //         body: JSON.stringify({
-    //             username: this.state.username,
-    //             itemTwoBid: this.state.itemTwoBid,
-    //             bidId: this.state.bidId
-    //         })
-    //     })
-    // }
-
-    // onCloseBid = () => {
-    //     fetch('http://localhost:3000/closeBid2', {
-    //         method: 'post',
-    //         headers: {'Content-Type': 'application/json'},
-    //         body: JSON.stringify({
-    //             bid2: 'closed'
-    //         })
-    //     })
-    //     console.log('bid2 closed')
-    // }
-
     onCloseBid = () => {
         fetch('https://serene-spire-38055.herokuapp.com/closeBid', {
             method: 'post',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
                 status: 'closed',
-                bidId: this.state.bidId,
+                bidId: this.state.bidId
             })
         })
     }
@@ -155,14 +88,9 @@ class Item2 extends Component {
         return (
             <div id="item">
                 <img src={watch} alt=""/>
-                <h3>Hero Watch</h3>
+                <h3>Hero's Watch</h3>
                 <p>If you look at it, you'll know time!</p>
-                {/* <input 
-                    type="number"
-                    onChange={this.onBidChange}
 
-                /> */}
-                {/* <button onClick={this.onSubmitBid}>SUBMIT BID</button> */}
                 {
                     
                     this.state.username === 'Admin' ?
@@ -170,22 +98,22 @@ class Item2 extends Component {
 
                     : 
 
-                    this.state.username !== 'Admin' && this.state.bidWinner === ''? 
+                    this.state.username !== 'Admin' && this.state.bidWinner === '' ? 
                     <div>
                         <input 
-                        type="number"
-                        onChange={this.onBidChange}
+                            type="number"
+                            onChange={this.onBidChange}
                         />
                         <button onClick={this.onSubmitBid}>{this.props.action}</button>
                     </div>
                     
                     :
 
-                    this.state.username === this.state.bidWinner ? <h2>You won this bid!</h2> : <h2>You lost this bid!</h2>
-                    
-                    
+                    this.state.username === this.state.bidWinner ? 
+                    <h2>You won this bid!</h2> : <h2>You lost this bid!</h2>
 
                 }
+
             </div>
         )
     }

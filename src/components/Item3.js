@@ -1,13 +1,12 @@
 import React, {Component} from 'react';
 import './Item.css'
-// import ps5 from '../assets/ps51.jpg';
 import ps5 from '../assets/ps5.jpg';
  
 
 
 
 class Item3 extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
             username: props.user,
@@ -17,25 +16,6 @@ class Item3 extends Component {
         }
     }
 
-    // checkWinner = () => {
-    //     fetch('http://localhost:3000/resultBid3', {
-    //         method: 'get',
-    //         headers: {'Content-Type': 'application/json'}
-    //         })
-    //         .then(response => response.json())
-    //         .then(data => {
-    //             if (data === 'User1 won this bid!') {
-    //                 this.setState({bidWinner: 'User1'})
-    
-    //                     console.log(this.state.bidWinner)
-    //                 } else if (data === 'User1 lost this bid!') { 
-    //                     this.setState({bidWinner: 'User2'})
-                        
-    //             } else if (data === 'no winner') {
-    //                 this.setState({bidWinner: ''})
-    //         }
-    //     })
-    // }
 
     checkWinner = () => {
         fetch('https://serene-spire-38055.herokuapp.com/results', {
@@ -51,9 +31,8 @@ class Item3 extends Component {
                 if (data === 'User1 won this bid!') {
                     this.setState({bidWinner: 'User1'})
     
-                        console.log(this.state.bidWinner)
-                    } else if (data === 'User1 lost this bid!') { 
-                        this.setState({bidWinner: 'User2'})
+                } else if (data === 'User1 lost this bid!') { 
+                    this.setState({bidWinner: 'User2'})
                         
                 } else if (data === 'no winner') {
                     this.setState({bidWinner: ''})
@@ -69,49 +48,18 @@ class Item3 extends Component {
             .then(response => response.json())
             .then(response => {
                 if (response.bidStatus[2].status === 'closed') {
-                return this.checkWinner()
+                return this.checkWinner();
             }
         })
     }
 
     componentDidMount() {
-        this.checkBidStatus()
+        this.checkBidStatus();
     }
-    
-    // componentDidMount() {
-    //     fetch('http://localhost:3000/resultBid3', {
-    //         method: 'get',
-    //         headers: {'Content-Type': 'application/json'}
-    //         })
-    //         .then(response => response.json())
-    //         .then(data => {
-    //             if (data === 'User1 won this bid!') {
-    //                 this.setState({bidWinner: 'User1'})
-                
-    //             } else if (data === 'User1 lost this bid!') { 
-    //                 this.setState({bidWinner: 'User2'})
-
-    //             } else if (data === 'no winner') {
-    //                 this.setState({bidWinner: ''})
-    //         }
-    //     })
-    // }
 
     onBidChange = (event) => {
-        this.setState({bidValue: event.target.value})
+        this.setState({bidValue: event.target.value});
     }
-
-    // onSubmitBid = () => {
-    //     fetch('http://localhost:3000/bid3', {
-    //         method: 'put',
-    //         headers: {'Content-Type': 'application/json'},
-    //         body: JSON.stringify({
-    //             username: this.state.username,
-    //             itemThreeBid: this.state.itemThreeBid,
-    //             bidId: this.state.bidId
-    //         })
-    //     })
-    // }
 
     onSubmitBid = () => {
         fetch('https://serene-spire-38055.herokuapp.com/placeBid', {
@@ -131,7 +79,7 @@ class Item3 extends Component {
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
                 status: 'closed',
-                bidId: this.state.bidId,
+                bidId: this.state.bidId
             })
         })
     }
@@ -141,7 +89,7 @@ class Item3 extends Component {
             <div id="item">
                 <img src={ps5} alt=""/>
                 <h3>Playstation 5</h3>
-                <p>Play it now. You know you want to.</p>
+                <p>You know you want to.</p>
                 
                 {
                     
@@ -150,22 +98,22 @@ class Item3 extends Component {
 
                     : 
 
-                    this.state.username !== 'Admin' && this.state.bidWinner === ''? 
+                    this.state.username !== 'Admin' && this.state.bidWinner === '' ? 
                     <div>
                         <input 
-                        type="number"
-                        onChange={this.onBidChange}
+                            type="number"
+                            onChange={this.onBidChange}
                         />
                         <button onClick={this.onSubmitBid}>{this.props.action}</button>
                     </div>
                     
                     :
 
-                    this.state.username === this.state.bidWinner ? <h2>You won this bid!</h2> : <h2>You lost this bid!</h2>
+                    this.state.username === this.state.bidWinner ? 
+                    <h2>You won this bid!</h2> : <h2>You lost this bid!</h2>
                     
-                    
-
                 }
+
             </div>
         )
     }

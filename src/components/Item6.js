@@ -6,7 +6,7 @@ import lambo from '../assets/lambo.jpg';
 
 
 class Item6 extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
             username: props.user,
@@ -16,25 +16,6 @@ class Item6 extends Component {
         }
     }
 
-    // checkWinner = () => {
-    //     fetch('http://localhost:3000/resultBid6', {
-    //         method: 'get',
-    //         headers: {'Content-Type': 'application/json'}
-    //         })
-    //         .then(response => response.json())
-    //         .then(data => {
-    //             if (data === 'User1 won this bid!') {
-    //                 this.setState({bidWinner: 'User1'})
-    
-    //                     console.log(this.state.bidWinner)
-    //                 } else if (data === 'User1 lost this bid!') { 
-    //                     this.setState({bidWinner: 'User2'})
-                        
-    //             } else if (data === 'no winner') {
-    //                 this.setState({bidWinner: ''})
-    //         }
-    //     })
-    // }
 
     checkWinner = () => {
         fetch('https://serene-spire-38055.herokuapp.com/results', {
@@ -50,9 +31,8 @@ class Item6 extends Component {
                 if (data === 'User1 won this bid!') {
                     this.setState({bidWinner: 'User1'})
     
-                        console.log(this.state.bidWinner)
-                    } else if (data === 'User1 lost this bid!') { 
-                        this.setState({bidWinner: 'User2'})
+                } else if (data === 'User1 lost this bid!') { 
+                    this.setState({bidWinner: 'User2'})
                         
                 } else if (data === 'no winner') {
                     this.setState({bidWinner: ''})
@@ -68,36 +48,17 @@ class Item6 extends Component {
             .then(response => response.json())
             .then(response => {
                 if (response.bidStatus[5].status === 'closed') {
-                return this.checkWinner()
+                return this.checkWinner();
             }
         })
     }
 
     componentDidMount() {
-        this.checkBidStatus()
+        this.checkBidStatus();
     }
 
-    // componentDidMount() {
-    //     fetch('http://localhost:3000/resultBid6', {
-    //         method: 'get',
-    //         headers: {'Content-Type': 'application/json'}
-    //         })
-    //         .then(response => response.json())
-    //         .then(data => {
-    //             if (data === 'User1 won this bid!') {
-    //                 this.setState({bidWinner: 'User1'})
-                
-    //             } else if (data === 'User1 lost this bid!') { 
-    //                 this.setState({bidWinner: 'User2'})
-
-    //             } else if (data === 'no winner') {
-    //                 this.setState({bidWinner: ''})
-    //         }
-    //     })
-    // }
-
     onBidChange = (event) => {
-        this.setState({bidValue: event.target.value})
+        this.setState({bidValue: event.target.value});
     }
 
     onSubmitBid = () => {
@@ -118,7 +79,7 @@ class Item6 extends Component {
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
                 status: 'closed',
-                bidId: this.state.bidId,
+                bidId: this.state.bidId
             })
         })
     }
@@ -129,12 +90,7 @@ class Item6 extends Component {
                 <img src={lambo} alt=""/>
                 <h3>A lambo</h3>
                 <p>Only a click away.. </p>
-                {/* <input 
-                    type="number"
-                    onChange={this.onBidChange}
 
-                /> */}
-                {/* <button onClick={this.onSubmitBid}>SUBMIT BID</button> */}
                 {
                     
                     this.state.username === 'Admin' ?
@@ -142,22 +98,22 @@ class Item6 extends Component {
 
                     : 
 
-                    this.state.username !== 'Admin' && this.state.bidWinner === ''? 
+                    this.state.username !== 'Admin' && this.state.bidWinner === '' ? 
                     <div>
                         <input 
-                        type="number"
-                        onChange={this.onBidChange}
+                            type="number"
+                            onChange={this.onBidChange}
                         />
                         <button onClick={this.onSubmitBid}>{this.props.action}</button>
                     </div>
                     
                     :
 
-                    this.state.username === this.state.bidWinner ? <h2>You won this bid!</h2> : <h2>You lost this bid!</h2>
-                    
-                    
+                    this.state.username === this.state.bidWinner ? 
+                    <h2>You won this bid!</h2> : <h2>You lost this bid!</h2>
 
                 }
+                
             </div>
         )
     }
