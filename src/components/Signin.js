@@ -75,10 +75,6 @@ class Signin extends Component {
                                 value="Sign in"
                             />
                         </div>
-                        <div className="lh-copy mt3">
-                            <a href="#0" className="f6 link dim black db">Sign up</a>
-                            <a href="#0" className="f6 link dim black db">Forgot your password?</a>
-                        </div>
                     </div>
                 </main>
             </div>
