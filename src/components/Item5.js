@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import './Item.css'
 import guitar from '../assets/guitar.jpg';
+import { io } from 'socket.io-client';
+ 
+const socket = io('https://serene-spire-38055.herokuapp.com');
  
 
 
@@ -17,45 +20,14 @@ class Item5 extends Component {
     }
 
 
-    checkWinner = () => {
-        fetch('https://serene-spire-38055.herokuapp.com/results', {
-            method: 'post',
-            headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({
-                    username: this.state.username,
-                    bidId: this.state.bidId
-                })
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data === 'User1 won this bid!') {
-                    this.setState({bidWinner: 'User1'})
-
-                } else if (data === 'User1 lost this bid!') { 
-                    this.setState({bidWinner: 'User2'})
-                        
-                } else if (data === 'no winner') {
-                    this.setState({bidWinner: ''})
-            }
-        })
-    }
-
-    checkBidStatus = () => {
-        fetch('https://serene-spire-38055.herokuapp.com/', {
-            method: 'get',
-            headers: {'Content-Type': 'application/json'}
-            })
-            .then(response => response.json())
-            .then(response => {
-                if (response.bidStatus[4].status === 'closed') {
-                return this.checkWinner();
-            }
-        })
-    }
-
     componentDidMount() {
-        this.checkBidStatus();
+        socket.on('winner name', data => {
+            if(data.bid === this.state.bidId) {
+                this.setState({bidWinner: data.name})
+            }
+        })
     }
+    
 
     onBidChange = (event) => {
         this.setState({bidValue: event.target.value});
@@ -74,14 +46,8 @@ class Item5 extends Component {
     }
 
     onCloseBid = () => {
-        fetch('https://serene-spire-38055.herokuapp.com/closeBid', {
-            method: 'post',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({
-                status: 'closed',
-                bidId: this.state.bidId
-            })
-        })
+        const bidNumber = this.state.bidId;
+        socket.emit('close this bid!', bidNumber);
     }
 
     render () {
