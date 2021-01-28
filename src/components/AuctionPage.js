@@ -13,6 +13,16 @@ class AuctionPage extends Component {
 		super(props);
 	}
 
+	onResetBids = () => {
+		fetch('https://serene-spire-38055.herokuapp.com/resetBids', {
+			method: 'post',
+			headers: {'Content-Type': 'application/json'},
+			body: JSON.stringify({
+				newValues: 0
+			})
+		})
+	}
+
 		
 	render() {
 		return (
@@ -25,6 +35,15 @@ class AuctionPage extends Component {
 						type="submit" 
 						value="Sign Out"
 					/>
+
+					{
+					  this.props.user === 'Admin' ? 
+					  <button 
+					  onClick={this.onResetBids}
+					  id='reset'
+					  className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
+					  >Reset all bids</button> : null
+				  	}	
 				</header>
 
 				{
