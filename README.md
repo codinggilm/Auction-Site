@@ -27,6 +27,11 @@ The back end will calculate the winner for the bid(s) you closed and the user's 
 Reset the bids from the Admin's page. 
 
 
+## Improving the App
+At the moment, if a user refreshes the page the bid result message disappears and the user can keep biding. <br />
+I will re-implented the option to open or close the bids on the back end to fix this. 
+
+
 ## Technologies Used
 * REACT
 * NODE.JS
