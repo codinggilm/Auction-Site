@@ -14,11 +14,12 @@ class AuctionPage extends Component {
 	}
 
 	onResetBids = () => {
-		fetch('https://serene-spire-38055.herokuapp.com/resetBids', {
+		fetch('http://localhost:3000/resetBids', {
 			method: 'post',
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({
-				newValues: 0
+				newValues: 0,
+				requestFrom: 'Admin'
 			})
 		})
 	}
