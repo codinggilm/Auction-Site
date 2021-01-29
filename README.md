@@ -41,4 +41,8 @@ I will re-implement the option to update the bid status on the back end to fix t
 * CSS
 * JAVASCRIPT
 * NPM
+<<<<<<< HEAD
 * POSTMAN
+=======
+* POSTMAN
+>>>>>>> e2678e63aaf2f0ebc49318adc5f93dd35ca4a746
