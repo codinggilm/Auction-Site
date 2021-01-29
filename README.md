@@ -30,6 +30,7 @@ Reset the bids from the Admin's page.
 ## Technologies Used
 * REACT
 * NODE.JS
+* EXPRESS.JS
 * Socket.IO
 * HTML
 * CSS
