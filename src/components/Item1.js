@@ -39,13 +39,13 @@ class Item1 extends Component {
             })
             .then(response => response.json())
             .then(data => {
-                if (data === 'User1') {
-                    this.setState({bidWinner: 'User1'})
+            if (data === 'User1') {
+                this.setState({bidWinner: 'User1'})
 
-                } else if (data === 'User2') { 
-                    this.setState({bidWinner: 'User2'})
-                        
-                }
+            } else if (data === 'User2') { 
+                this.setState({bidWinner: 'User2'})
+                    
+            }
         })
     }
     
