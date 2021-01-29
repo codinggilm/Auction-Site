@@ -10,8 +10,8 @@ To view the app, click https://auction-site-front.herokuapp.com/
 
 Please log in using these details: 
 
-- username: User1
-- password: IamUserOne
+username: User1<br />
+password: IamUserOne
 
 - username: User2
 - password: IamUserTwo 
