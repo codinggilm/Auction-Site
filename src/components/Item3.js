@@ -21,10 +21,32 @@ class Item3 extends Component {
 
 
     componentDidMount() {
+        this.checkBidStatus();
         socket.on('winner name', data => {
             if(data.bid === this.state.bidId) {
                 this.setState({bidWinner: data.name})
             }
+        })
+    }
+
+    checkBidStatus = () => {
+        fetch('https://serene-spire-38055.herokuapp.com/checkBidStatus', {
+            method: 'post',
+            headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    username: this.state.username,
+                    bidId: this.state.bidId
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data === 'User1') {
+                    this.setState({bidWinner: 'User1'})
+
+                } else if (data === 'User2') { 
+                    this.setState({bidWinner: 'User2'})
+                        
+                }
         })
     }
     
