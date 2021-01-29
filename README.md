@@ -13,18 +13,18 @@ Please log in using these details:
 username: User1<br />
 password: IamUserOne
 
-- username: User2
-- password: IamUserTwo 
+username: User2<br />
+password: IamUserTwo 
 
-- username: Admin
-- password: IamTheBoss 
+username: Admin<br />
+password: IamTheBoss 
 
 
 ## How to use
-Open two tabs/windows, log in using the users credentials above and submit bids
-Log in as the Admin (on a different tab/window) and close any of the bids
-The back end will calculate the winner for the bid(s) you closed and the user's UI will update in real time
-Reset the bids from the Admin's page  
+Open two tabs/windows, log in using the users credentials above and submit bids.<br />
+Log in as the Admin (on a different tab/window) and close any of the bids.<br />
+The back end will calculate the winner for the bid(s) you closed and the user's UI will update in real time.<br />
+Reset the bids from the Admin's page. 
 
 
 ## Technologies Used
