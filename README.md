@@ -2,7 +2,7 @@
  
 
 ## Description
-A full stack React / Node app letting users place bids on items. Once the site Admin has logged in and closed a bid, the user's UI updates in real time to display the result.
+A React / Node app letting users place bids on items. Once the site Admin has logged in and closed a bid, the user's UI updates in real time to display the result.
 The point of the App at the moment is to implement a functional back-end rather than building a beautiful and responsive UI.
 
 ## Setup/Installation
