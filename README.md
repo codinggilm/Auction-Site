@@ -28,8 +28,7 @@ Reset the bids from the Admin's page.
 
 
 ## Improving the App
-At the moment, if a user refreshes the page the bid result message disappears and the user can keep biding. <br />
-I will re-implement the option to update the bid status on the back end to fix this. 
+Next step: Updating the users UI in real time once the Admin has reset the bids (currently needs a refresh or sign out).
 
 
 ## Technologies Used
@@ -41,8 +40,4 @@ I will re-implement the option to update the bid status on the back end to fix t
 * CSS
 * JAVASCRIPT
 * NPM
-<<<<<<< HEAD
 * POSTMAN
-=======
-* POSTMAN
->>>>>>> e2678e63aaf2f0ebc49318adc5f93dd35ca4a746
