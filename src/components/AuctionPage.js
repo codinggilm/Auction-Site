@@ -1,11 +1,16 @@
 import React, {Component} from 'react';
-import Item1 from './Item1';
-import Item2 from './Item2';
-import Item3 from './Item3';
-import Item4 from './Item4';
-import Item5 from './Item5';
-import Item6 from './Item6';
+import Item from './Item';
 import '../App.css';
+import banana from '../assets/banana.jpg';
+import guitar from '../assets/guitar.jpg';
+import lambo from '../assets/lambo.jpg';
+import watch from '../assets/watch.jpg';
+import westminster from '../assets/westminster.jpg';
+import ps5 from '../assets/ps5.jpg';
+
+import {io} from 'socket.io-client';
+
+const socket = io('https://serene-spire-38055.herokuapp.com');
 
 
 class AuctionPage extends Component {
@@ -14,14 +19,7 @@ class AuctionPage extends Component {
 	}
  
 	onResetBids = () => {
-		fetch('https://serene-spire-38055.herokuapp.com/resetBids', {
-			method: 'post',
-			headers: {'Content-Type': 'application/json'},
-			body: JSON.stringify({
-				newValues: 0,
-				status:'open'
-			})
-		})
+		socket.emit('reset bids');
 	}
 
 		
@@ -50,26 +48,110 @@ class AuctionPage extends Component {
 				{
 					this.props.user === 'Admin' ? 
 					<div className="auction-items">
-						<Item1 user={this.props.user} action='CLOSE BIDS'/>
-						<Item2 user={this.props.user} action='CLOSE BIDS'/>
-						<Item3 user={this.props.user} action='CLOSE BIDS'/>
-						<Item4 user={this.props.user} action='CLOSE BIDS'/>
-						<Item5 user={this.props.user} action='CLOSE BIDS'/>
-						<Item6 user={this.props.user} action='CLOSE BIDS'/>
+						<Item 
+							user={this.props.user} 
+							action='CLOSE BIDS'
+							id='0' 
+							img={banana} 
+							title='A banana'
+							description='The most delicious banana, ever.'
+						/>
+						<Item 
+							user={this.props.user} 
+							action='CLOSE BIDS'
+							id='1' 
+							img={watch} 
+							title="Hero's Watch"
+							description='Lets you control time and space'
+						/>
+						<Item 
+							user={this.props.user} 
+							action='CLOSE BIDS'
+							id='2' 
+							img={ps5} 
+							title='Playstation 5'
+							description='Succulent escapism'
+						/>
+						<Item 
+							user={this.props.user} 
+							action='CLOSE BIDS'
+							id='3' 
+							img={westminster} 
+							title='Westminter'
+							description='Yes, you can buy it!'
+						/>
+						<Item 
+							user={this.props.user} 
+							action='CLOSE BIDS'
+							id='4' 
+							img={guitar} 
+							title="Van Halen's guitar"
+							description='Used and abused, the real deal!'
+						/>
+						<Item 
+							user={this.props.user} 
+							action='CLOSE BIDS'
+							id='5' 
+							img={lambo} 
+							title='A lambo'
+							description='Only a click away..'
+						/>
 					</div>
 
 					: 
 
 					<div className="auction-items">
-						<Item1 user={this.props.user} action='SUBMIT BID'/>
-						<Item2 user={this.props.user} action='SUBMIT BID'/>
-						<Item3 user={this.props.user} action='SUBMIT BID'/>
-						<Item4 user={this.props.user} action='SUBMIT BID'/>
-						<Item5 user={this.props.user} action='SUBMIT BID'/>
-						<Item6 user={this.props.user} action='SUBMIT BID'/>
+						<Item 
+							user={this.props.user} 
+							action='SUBMIT BID'
+							id='0' 
+							img={banana} 
+							title='A banana'
+							description='The most delicious banana, ever.'
+						/>
+						<Item 
+							user={this.props.user} 
+							action='SUBMIT BID'
+							id='1' 
+							img={watch} 
+							title="Hero's Watch"
+							description='Lets you control time and space'
+						/>
+						<Item 
+							user={this.props.user} 
+							action='SUBMIT BID'
+							id='2' 
+							img={ps5} 
+							title='Playstation 5'
+							description='Succulent escapism'
+						/>
+						<Item 
+							user={this.props.user} 
+							action='SUBMIT BID'
+							id='3' 
+							img={westminster} 
+							title='Westminter'
+							description='Yes, you can buy it!'
+						/>
+						<Item 
+							user={this.props.user} 
+							action='SUBMIT BID'
+							id='4' 
+							img={guitar} 
+							title="Van Halen's guitar"
+							description='Used and abused, the real deal!'
+						/>
+						<Item 
+							user={this.props.user} 
+							action='SUBMIT BID'
+							id='5' 
+							img={lambo} 
+							title='A lambo'
+							description='Only a click away..'
+						/>
 					</div>
 				}  
-
+				
 			</div>
 		);
 	}
